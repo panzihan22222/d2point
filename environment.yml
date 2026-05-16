@@ -1,0 +1,13 @@
+name: d2point
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy
+      - opencv-python-headless
+      - pillow
+      - scipy
+      - scikit-learn

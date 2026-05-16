@@ -1,0 +1,14 @@
+fimages/
+masks/
+odmoutput/*
+*.jpg
+*.png
+*.json
+.venv/
+__pycache__/
+*.log
+*.csv
+*.zip
+*.tar.gz
+.vscode/
+*.ply

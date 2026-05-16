@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>手动多边形选区体积测算</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="panel">
+      <h1>手动多边形选区体积测算</h1>
+      <p class="subtitle">切换视角后，使用多边形套索选中点云并计算体积</p>
+
+      <div class="group">
+        <label>控制模式</label>
+        <div class="row">
+          <button id="modeView" class="btn btn-active">视角模式</button>
+          <button id="modeDraw" class="btn">多边形模式</button>
+          <button id="finishPolygon" class="btn">完成多边形</button>
+          <button id="undoPoint" class="btn">撤销点</button>
+          <button id="clearSelection" class="btn">清除选择</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <label for="gridCell">网格分辨率 (m)</label>
+        <input id="gridCell" type="number" min="0.01" max="5" step="0.01" value="0.2">
+      </div>
+
+      <div class="group">
+        <label for="basePercentile">基准百分位 (0-100)</label>
+        <input id="basePercentile" type="number" min="0" max="100" step="0.5" value="0.0">
+      </div>
+
+      <div class="group">
+        <button id="estimateBtn" class="btn btn-primary">计算体积</button>
+        <button id="exportBtn" class="btn">导出框内点云</button>
+      </div>
+
+      <div class="group">
+        <h2>结果</h2>
+        <pre id="resultBox">等待计算...</pre>
+      </div>
+
+      <div class="group">
+        <h2>操作提示</h2>
+        <ul>
+          <li>视角模式: 左键旋转，右键平移，滚轮缩放</li>
+          <li>多边形模式: 左键逐点点击，双击/回车/右键可闭合</li>
+          <li>Esc 取消当前多边形，撤销点可修正边界</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="viewer-wrap">
+      <canvas id="viewport"></canvas>
+      <canvas id="overlayCanvas" class="overlay-canvas"></canvas>
+      <div id="hud" class="hud">正在加载点云...</div>
+    </main>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/static/vendor/three/build/three.module.js",
+        "three/addons/": "/static/vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+:root {
+  --bg: #f2f4f8;
+  --panel: #ffffff;
+  --ink: #1f2a37;
+  --muted: #5e6c84;
+  --line: #d9dee7;
+  --accent: #0a66d6;
+  --accent-strong: #0049a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 10%, #ffffff, var(--bg));
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin: 8px 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.group {
+  margin-bottom: 16px;
+}
+
+.group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.group input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.group h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: #f7f9fc;
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  border-color: #b8c2d2;
+  background: #eef3fb;
+}
+
+.btn-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-active {
+  border-color: var(--accent);
+  background: rgba(10, 102, 214, 0.12);
+  color: #0a4c9d;
+}
+
+#resultBox {
+  margin: 0;
+  white-space: pre-wrap;
+  background: #f7f9fc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  min-height: 150px;
+}
+
+.group ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.viewer-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#viewport {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(180deg, #fdfefe 0%, #edf1f7 100%);
+}
+
+.hud {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(31, 42, 55, 0.82);
+  color: #ffffff;
+  font-size: 13px;
+  backdrop-filter: blur(2px);
+}
+
+.overlay-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    max-height: 45vh;
+  }
+}
